@@ -368,7 +368,6 @@ if "sess" in globals():
 sess = tf.Session()
 sess.run(init_ops)
 
-# use xrange here if you are still on python 2
 for i_iter in range(config["training"]["n_training_steps"]):
     batch = next(training_data_iter)
     _, train_metrics = sess.run(
@@ -408,15 +407,3 @@ for i_iter in range(config["training"]["n_training_steps"]):
 # between positive and negative pairs are growing and the evaluation results, i.e. pair AUC and triplet accuracies are going up as well.  Overall training seems to be working!
 #
 # You can train this much longer.  We observed improvement in performance even after training for 500,000 steps, but didn't push this much further as it is a synthetic task after all.
-
-# ## Test the model and create some visualizations
-#
-# Once the model is trained, we can test in on unseen data.  Our graph matching networks use cross-graph matching-based attention to compute graph similarity, we can visualize these attention weights to see where the model is attending to.
-
-
-# visualize on graphs of 10 nodes, bigger graphs become more difficult to
-# visualize
-vis_dataset = GraphEditDistanceDataset([10, 10], [0.2, 0.2], 1, 2, permute=False)
-
-pair_iter = vis_dataset.pairs(2)
-graphs, labels = next(pair_iter)

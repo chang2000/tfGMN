@@ -145,11 +145,10 @@ def batch_block_pair_attention(data, block_idx, n_blocks, similarity="dotproduct
     if n_blocks % 2 != 0:
         raise ValueError("n_blocks (%d) must be a multiple of 2." % n_blocks)
 
+    # Equation 9
     sim = get_pairwise_similarity(similarity)
 
     results = []
-
-    # This is probably better than doing boolean_mask for each i
     partitions = tf.dynamic_partition(data, block_idx, n_blocks)
 
     # It is rather complicated to allow n_blocks be a tf tensor and do this in a
@@ -232,7 +231,6 @@ def triplet_loss(x_1, y, x_2, z, loss_type="margin", margin=1.0):
         )
     else:
         raise ValueError("Unknown loss_type %s" % loss_type)
-
 
 """Configs"""
 def get_default_config():
