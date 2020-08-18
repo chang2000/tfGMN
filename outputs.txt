@@ -1,0 +1,50 @@
+iter 100, loss 0.8873, grad_scale 10.0000, param_scale 24.2240, graph_vec_scale 10.3391, sim_pos -0.5914, sim_neg -1.1151, sim_diff 0.5237, time 11.99s
+iter 200, loss 0.8771, grad_scale 9.9898, param_scale 24.2670, graph_vec_scale 17.1087, sim_pos -0.6368, sim_neg -1.2004, sim_diff 0.5636, time 7.75s
+iter 300, loss 0.8830, grad_scale 9.9773, param_scale 24.3027, graph_vec_scale 17.0012, sim_pos -0.5818, sim_neg -1.0533, sim_diff 0.4715, time 7.87s
+iter 400, loss 0.8372, grad_scale 10.0000, param_scale 24.3126, graph_vec_scale 11.9274, sim_pos -0.5922, sim_neg -1.2563, sim_diff 0.6641, time 7.73s
+iter 500, loss 0.8818, grad_scale 9.9879, param_scale 24.3395, graph_vec_scale 10.5516, sim_pos -0.5558, sim_neg -1.0426, sim_diff 0.4868, time 7.82s
+iter 600, loss 0.8757, grad_scale 9.9834, param_scale 24.3923, graph_vec_scale 12.8394, sim_pos -0.5530, sim_neg -1.0178, sim_diff 0.4647, time 7.70s
+iter 700, loss 0.8613, grad_scale 10.0000, param_scale 24.4811, graph_vec_scale 13.1900, sim_pos -0.5879, sim_neg -1.0978, sim_diff 0.5099, time 7.77s
+iter 800, loss 0.8571, grad_scale 9.9728, param_scale 24.5740, graph_vec_scale 9.2787, sim_pos -0.5790, sim_neg -1.1338, sim_diff 0.5549, time 7.97s
+iter 900, loss 0.8237, grad_scale 10.0000, param_scale 24.6664, graph_vec_scale 11.6841, sim_pos -0.6255, sim_neg -1.2683, sim_diff 0.6429, time 7.78s
+iter 1000, loss 0.8638, grad_scale 9.9662, param_scale 24.7718, graph_vec_scale 17.8530, sim_pos -0.5702, sim_neg -1.0790, sim_diff 0.5088, val/pair_auc 0.6324, val/triplet_acc 0.6670, time 14.69s
+iter 1100, loss 0.8409, grad_scale 9.9880, param_scale 24.9303, graph_vec_scale 15.7435, sim_pos -0.6286, sim_neg -1.2096, sim_diff 0.5811, time 7.82s
+iter 1200, loss 0.8522, grad_scale 10.0000, param_scale 25.1148, graph_vec_scale 7.6839, sim_pos -0.6068, sim_neg -1.1389, sim_diff 0.5321, time 8.09s
+iter 1300, loss 0.8138, grad_scale 10.0000, param_scale 25.1907, graph_vec_scale 4.7778, sim_pos -0.7042, sim_neg -1.3391, sim_diff 0.6349, time 7.81s
+iter 1400, loss 0.8215, grad_scale 10.0000, param_scale 25.2458, graph_vec_scale 6.9688, sim_pos -0.6505, sim_neg -1.2704, sim_diff 0.6199, time 7.74s
+iter 1500, loss 0.8152, grad_scale 10.0000, param_scale 25.3281, graph_vec_scale 6.8125, sim_pos -0.7034, sim_neg -1.3504, sim_diff 0.6470, time 7.75s
+iter 1600, loss 0.8066, grad_scale 10.0000, param_scale 25.4271, graph_vec_scale 7.2998, sim_pos -0.7107, sim_neg -1.3687, sim_diff 0.6580, time 7.86s
+iter 1700, loss 0.8151, grad_scale 10.0000, param_scale 25.4918, graph_vec_scale 8.7095, sim_pos -0.6957, sim_neg -1.3460, sim_diff 0.6503, time 7.85s
+iter 1800, loss 0.8053, grad_scale 10.0000, param_scale 25.6026, graph_vec_scale 6.1122, sim_pos -0.7249, sim_neg -1.3746, sim_diff 0.6497, time 7.78s
+iter 1900, loss 0.8008, grad_scale 10.0000, param_scale 25.7393, graph_vec_scale 5.9124, sim_pos -0.6897, sim_neg -1.3541, sim_diff 0.6644, time 8.07s
+iter 2000, loss 0.8250, grad_scale 10.0000, param_scale 25.8922, graph_vec_scale 6.9056, sim_pos -0.7086, sim_neg -1.3000, sim_diff 0.5913, val/pair_auc 0.6538, val/triplet_acc 0.6890, time 10.58s
+iter 2100, loss 0.8122, grad_scale 10.0000, param_scale 26.0320, graph_vec_scale 5.2555, sim_pos -0.7462, sim_neg -1.3755, sim_diff 0.6293, time 7.80s
+iter 2200, loss 0.8045, grad_scale 10.0000, param_scale 26.1303, graph_vec_scale 4.3697, sim_pos -0.7543, sim_neg -1.3940, sim_diff 0.6397, time 7.90s
+iter 2300, loss 0.7916, grad_scale 10.0000, param_scale 26.1934, graph_vec_scale 3.9951, sim_pos -0.7153, sim_neg -1.3503, sim_diff 0.6350, time 7.78s
+iter 2400, loss 0.8278, grad_scale 10.0000, param_scale 26.2812, graph_vec_scale 5.2692, sim_pos -0.7016, sim_neg -1.2960, sim_diff 0.5944, time 7.73s
+iter 2500, loss 0.8058, grad_scale 10.0000, param_scale 26.3557, graph_vec_scale 5.8444, sim_pos -0.7284, sim_neg -1.3689, sim_diff 0.6404, time 7.80s
+iter 2600, loss 0.7689, grad_scale 10.0000, param_scale 26.4257, graph_vec_scale 3.2281, sim_pos -0.7457, sim_neg -1.5151, sim_diff 0.7695, time 7.84s
+iter 2700, loss 0.7969, grad_scale 10.0000, param_scale 26.4954, graph_vec_scale 3.3767, sim_pos -0.7482, sim_neg -1.4360, sim_diff 0.6878, time 7.73s
+iter 2800, loss 0.8082, grad_scale 10.0000, param_scale 26.5255, graph_vec_scale 3.0197, sim_pos -0.7027, sim_neg -1.3742, sim_diff 0.6715, time 7.76s
+iter 2900, loss 0.7893, grad_scale 10.0000, param_scale 26.5781, graph_vec_scale 2.8958, sim_pos -0.7676, sim_neg -1.4553, sim_diff 0.6876, time 7.72s
+iter 3000, loss 0.8431, grad_scale 10.0000, param_scale 26.6646, graph_vec_scale 3.8674, sim_pos -0.7303, sim_neg -1.2741, sim_diff 0.5438, val/pair_auc 0.6621, val/triplet_acc 0.6680, time 10.91s
+iter 3100, loss 0.7689, grad_scale 10.0000, param_scale 26.8008, graph_vec_scale 4.1606, sim_pos -0.7765, sim_neg -1.5472, sim_diff 0.7707, time 7.77s
+iter 3200, loss 0.7840, grad_scale 10.0000, param_scale 26.8969, graph_vec_scale 2.8118, sim_pos -0.8286, sim_neg -1.5254, sim_diff 0.6968, time 7.78s
+iter 3300, loss 0.7904, grad_scale 10.0000, param_scale 26.9548, graph_vec_scale 1.9365, sim_pos -0.7651, sim_neg -1.4085, sim_diff 0.6434, time 7.75s
+iter 3400, loss 0.7791, grad_scale 10.0000, param_scale 27.0782, graph_vec_scale 1.8720, sim_pos -0.8018, sim_neg -1.4594, sim_diff 0.6575, time 7.76s
+iter 3500, loss 0.8122, grad_scale 10.0000, param_scale 27.1524, graph_vec_scale 1.9007, sim_pos -0.7581, sim_neg -1.3476, sim_diff 0.5896, time 7.88s
+iter 3600, loss 0.7733, grad_scale 10.0000, param_scale 27.2225, graph_vec_scale 2.7267, sim_pos -0.7728, sim_neg -1.4766, sim_diff 0.7038, time 7.67s
+iter 3700, loss 0.7730, grad_scale 10.0000, param_scale 27.3204, graph_vec_scale 2.7635, sim_pos -0.7620, sim_neg -1.4900, sim_diff 0.7279, time 7.78s
+iter 3800, loss 0.7557, grad_scale 10.0000, param_scale 27.4433, graph_vec_scale 3.6189, sim_pos -0.7520, sim_neg -1.5714, sim_diff 0.8195, time 7.71s
+iter 3900, loss 0.7714, grad_scale 10.0000, param_scale 27.5628, graph_vec_scale 1.8792, sim_pos -0.8008, sim_neg -1.5219, sim_diff 0.7211, time 7.98s
+iter 4000, loss 0.7786, grad_scale 10.0000, param_scale 27.6404, graph_vec_scale 2.4379, sim_pos -0.7773, sim_neg -1.4837, sim_diff 0.7063, val/pair_auc 0.6648, val/triplet_acc 0.7350, time 10.61s
+iter 4100, loss 0.7738, grad_scale 10.0000, param_scale 27.7126, graph_vec_scale 2.1756, sim_pos -0.7762, sim_neg -1.5106, sim_diff 0.7344, time 7.71s
+iter 4200, loss 0.7691, grad_scale 10.0000, param_scale 27.7810, graph_vec_scale 1.4263, sim_pos -0.8066, sim_neg -1.5122, sim_diff 0.7056, time 7.71s
+iter 4300, loss 0.7667, grad_scale 10.0000, param_scale 27.8617, graph_vec_scale 1.7901, sim_pos -0.8347, sim_neg -1.5831, sim_diff 0.7484, time 7.75s
+iter 4400, loss 0.7857, grad_scale 10.0000, param_scale 27.9286, graph_vec_scale 1.4075, sim_pos -0.8296, sim_neg -1.4867, sim_diff 0.6571, time 7.70s
+iter 4500, loss 0.7750, grad_scale 10.0000, param_scale 27.9861, graph_vec_scale 1.4040, sim_pos -0.8384, sim_neg -1.5247, sim_diff 0.6863, time 7.80s
+iter 4600, loss 0.7680, grad_scale 10.0000, param_scale 28.0557, graph_vec_scale 1.2411, sim_pos -0.7540, sim_neg -1.4221, sim_diff 0.6681, time 7.76s
+iter 4700, loss 0.7698, grad_scale 10.0000, param_scale 28.1328, graph_vec_scale 2.2770, sim_pos -0.7909, sim_neg -1.4841, sim_diff 0.6932, time 7.71s
+iter 4800, loss 0.7713, grad_scale 10.0000, param_scale 28.1726, graph_vec_scale 1.2568, sim_pos -0.8339, sim_neg -1.5140, sim_diff 0.6801, time 8.06s
+iter 4900, loss 0.7792, grad_scale 10.0000, param_scale 28.2418, graph_vec_scale 1.3821, sim_pos -0.7927, sim_neg -1.4273, sim_diff 0.6346, time 7.72s
+iter 5000, loss 0.7895, grad_scale 10.0000, param_scale 28.2885, graph_vec_scale 1.7310, sim_pos -0.7933, sim_neg -1.4116, sim_diff 0.6183, val/pair_auc 0.6756, val/triplet_acc 0.7410, time 10.60s
