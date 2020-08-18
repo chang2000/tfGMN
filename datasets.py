@@ -230,7 +230,7 @@ class GraphEditDistanceDataset(GraphSimilarityDataset):
         )
 
 # Use Fixed datasets for evaluation
-
+@contextlib.contextmanager
 def reset_random_state(seed):
     """This function creates a context that uses the given seed."""
     np_rnd_state = np.random.get_state()

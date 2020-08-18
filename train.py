@@ -413,8 +413,6 @@ for i_iter in range(config["training"]["n_training_steps"]):
 #
 # Once the model is trained, we can test in on unseen data.  Our graph matching networks use cross-graph matching-based attention to compute graph similarity, we can visualize these attention weights to see where the model is attending to.
 
-# In[ ]:
-
 
 # visualize on graphs of 10 nodes, bigger graphs become more difficult to
 # visualize
@@ -425,9 +423,6 @@ graphs, labels = next(pair_iter)
 
 
 # Let's split the batched graphs into individual graphs and visualize them first.
-
-# In[ ]:
-
 
 def split_graphs(graphs):
     """Split a batch of graphs into individual `nx.Graph` instances."""
@@ -447,9 +442,6 @@ def split_graphs(graphs):
         g[i].add_edges_from(edges)
 
     return g
-
-
-# In[ ]:
 
 
 nx_graphs = split_graphs(graphs)
@@ -474,9 +466,6 @@ for i in range(0, len(nx_graphs), 2):
 
 # Build the computation graph for visualization.
 
-# In[ ]:
-
-
 n_graphs = graphs.n_graphs
 
 model_inputs = placeholders.copy()
@@ -487,8 +476,6 @@ similarity = compute_similarity(config, x, y)
 
 layer_outputs = model.get_layer_outputs()
 
-
-# In[ ]:
 
 
 def build_matchings(layer_outputs, graph_idx, n_graphs, sim):
@@ -528,122 +515,3 @@ print(sim)
 #
 # Remember that with a margin loss and Euclidean distance, which is how this model is trained, the similarity value is the negative distance.  In this case the distance for positive pair is quite small, while the distance between two graphs in the negative pair is large.
 
-# ### Some tools for visualizing attention
-
-# In[ ]:
-
-
-def _plot_graph_matching_on_axis(ax, g_base, pos, att, title=None):
-    """Plot graph matching on an axis."""
-    original_edges = g_base.edges()
-    g = g_base.copy()
-    n1, n2 = att.shape
-    alpha = []
-    att_edges = []
-    for i in range(n1):
-        for j in range(n2):
-            g.add_edge(i, j + n1)
-            att_edges.append((i, j + n1))
-            alpha.append(att[i][j])
-
-    nx.draw_networkx_nodes(
-        g, pos, nodelist=range(n1), node_color="lavender", linewidths=3, ax=ax
-    )
-    nx.draw_networkx_nodes(
-        g, pos, nodelist=range(n1, n1 + n2), node_color="wheat", linewidths=3, ax=ax
-    )
-    nx.draw_networkx_edges(
-        g, pos, edgelist=original_edges, edge_color="k", width=3, ax=ax
-    )
-    for i in range(len(att_edges)):
-        nx.draw_networkx_edges(
-            g,
-            pos,
-            edgelist=att_edges[i : i + 1],
-            edge_color="g",
-            alpha=alpha[i],
-            ax=ax,
-            width=3,
-        )
-    ax.axis("off")
-    if title:
-        ax.set_title(title)
-
-    # set xlim and ylim
-    coords = np.array(list(pos.values()), dtype=np.float32)
-    x_min, y_min = coords.min(axis=0)
-    x_max, y_max = coords.max(axis=0)
-    x_len = x_max - x_min
-    y_len = y_max - y_min
-    ax.set_xlim([x_min - x_len * 0.05, x_max + x_len * 0.05])
-    ax.set_ylim([y_min - y_len * 0.05, y_max + y_len * 0.05])
-
-
-def plot_graph_matching_pair(g1, g2, matchings, pos=None, seed=0):
-    """Plot a pair of graphs and the matchings between them.
-
-  Args:
-    g1: a networkx graph.
-    g2: a networkx graph.
-    matchings: a pair of n1 x n2 matrices.
-    pos: a position dictionary, if provided.
-
-  Returns:
-    pos: position dictionary, used for other plots between these two graphs.
-  """
-    n1 = g1.number_of_nodes()
-    n2 = g2.number_of_nodes()
-    assert n1 >= n2
-
-    if pos is None:
-        with reset_random_state(seed=seed):
-            pos1 = nx.spring_layout(g1)
-        pos1_values = np.array(list(pos1.values()), dtype=np.float32)
-        pos1_values -= pos1_values.mean(axis=0, keepdims=True)
-        pos2_values = pos1_values[n1 - n2 :] + np.array(
-            [
-                pos1_values[n1 - n2 :, 0].max(axis=0) * 2
-                - pos1_values[n1 - n2 :, 0].min(axis=0),
-                0,
-            ]
-        )
-
-        pos = {k: pos1_values[k] for k in pos1.keys()}
-        pos.update(
-            {(k + n2): pos2_values[k - (n1 - n2)] for k in list(pos1.keys())[n1 - n2 :]}
-        )
-
-    g_base = nx.Graph()
-    g_base.add_nodes_from(range(n1))
-    g_base.add_nodes_from(range(n1, n1 + n2))
-    g_base.add_edges_from(g1.edges())
-    g_base.add_edges_from([(i + n1, j + n1) for i, j in g2.edges()])
-
-    fig, ax = plt.subplots(1, 2, figsize=(11.2, 4.8))
-    _plot_graph_matching_on_axis(
-        ax[0], g_base, pos, matchings[0], title="left attend to right"
-    )
-    _plot_graph_matching_on_axis(
-        ax[1], g_base, pos, matchings[1], title="right attend to left"
-    )
-    fig.tight_layout(pad=0, h_pad=0, w_pad=0)
-    return pos
-
-
-# ### Visualize how the attention pattern changes across layers
-
-# visualize the attention across layers for the positive pair
-plt.close("all")
-for i in range(len(a)):
-    _ = plot_graph_matching_pair(nx_graphs[0], nx_graphs[1], a[i][0])
-
-
-# Note that the left-to-right and right-to-left attention patterns are slightly different.  Also the attention pattern starts almost uniform, and then gets more concentrated after a few layers.
-#
-# If we train the model for longer, we can see a clearer matching pattern.
-
-
-# negative pair
-plt.close("all")
-for i in range(len(a)):
-    _ = plot_graph_matching_pair(nx_graphs[2], nx_graphs[3], a[i][1])
