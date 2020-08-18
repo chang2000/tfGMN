@@ -1,0 +1,17 @@
+__pycache__/
+data/
+build/
+dist/
+alpha/
+runs/
+.cache/
+.eggs/
+*.egg-info/
+.coverage
+.coverage.*
+.vscode
+.idea
+.code
+*.pyc
+.DS_Store
+desktop.ini
