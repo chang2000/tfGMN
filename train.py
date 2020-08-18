@@ -10,10 +10,6 @@ import copy
 import tensorflow as tf
 import numpy as np
 
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
-
 """Evaluation"""
 
 def exact_hamming_similarity(x, y):
@@ -110,13 +106,13 @@ def build_placeholders(node_feature_dim, edge_feature_dim):
     # `n_graphs` must be specified as an integer, as `tf.dynamic_partition`
     # requires so.
     return {
-        "node_features": tf.placeholder(tf.float32, [None, node_feature_dim]),
-        "edge_features": tf.placeholder(tf.float32, [None, edge_feature_dim]),
-        "from_idx": tf.placeholder(tf.int32, [None]),
-        "to_idx": tf.placeholder(tf.int32, [None]),
-        "graph_idx": tf.placeholder(tf.int32, [None]),
+        "node_features": tf.compat.v1.placeholder(tf.float32, [None, node_feature_dim]),
+        "edge_features": tf.compat.v1.placeholder(tf.float32, [None, edge_feature_dim]),
+        "from_idx":      tf.compat.v1.placeholder(tf.int32, [None]),
+        "to_idx":        tf.compat.v1.placeholder(tf.int32, [None]),
+        "graph_idx":     tf.compat.v1.placeholder(tf.int32, [None]),
         # only used for pairwise training and evaluation
-        "labels": tf.placeholder(tf.int32, [None]),
+        "labels":        tf.compat.v1.placeholder(tf.int32, [None]),
     }
 
 
@@ -328,13 +324,13 @@ def evaluate(sess, eval_metrics, placeholders, validation_set, batch_size):
 
 config = get_default_config()
 config["training"]["n_training_steps"] = 5000
-tf.reset_default_graph()
+tf.compat.v1.reset_default_graph()
 
 # Set random seeds
 seed = config["seed"]
 random.seed(seed)
 np.random.seed(seed + 1)
-tf.set_random_seed(seed + 2)
+tf.compat.v1.set_random_seed(seed + 2)
 
 training_set, validation_set = build_datasets(config)
 

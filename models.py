@@ -5,7 +5,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 
-class GraphEmbeddingNet(snt.AbstractModule):
+class GraphEmbeddingNet(snt.Module):
     """A graph to embedding mapping network."""
 
     def __init__(
@@ -22,7 +22,7 @@ class GraphEmbeddingNet(snt.AbstractModule):
         use_reverse_direction=True,
         reverse_dir_param_different=True,
         layer_norm=False,
-        name="graph-embedding-net",
+        name="GraphEmbeddingNet",
     ):
         """Constructor.
             Args:
@@ -177,7 +177,7 @@ class GraphMatchingNet(GraphEmbeddingNet):
         reverse_dir_param_different=True,
         layer_norm=False,
         similarity="dotproduct",
-        name="graph-matching-net",
+        name="GraphMatchingNet",
     ):
         super(GraphMatchingNet, self).__init__(
             encoder,

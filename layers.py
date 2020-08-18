@@ -6,11 +6,11 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 
 """Graph Embedding Network"""
-class GraphEncoder(snt.AbstractModule):
+class GraphEncoder(snt.Module):
     """Encoder module that projects node and edge features to some embeddings."""
 
     def __init__(
-        self, node_hidden_sizes=None, edge_hidden_sizes=None, name="graph-encoder"
+        self, node_hidden_sizes=None, edge_hidden_sizes=None, name="GraphEncoder"
     ):
         """Constructor.
 
@@ -66,7 +66,7 @@ def graph_prop_once(
     from_idx,
     to_idx,
     message_net,
-    aggregation_module=tf.unsorted_segment_sum,
+    aggregation_module=tf.math.unsorted_segment_sum,
     edge_features=None,
 ):
     """One round of propagation (message passing) in a graph.
@@ -104,7 +104,7 @@ def graph_prop_once(
 
     return aggregation_module(messages, to_idx, tf.shape(node_states)[0])
 
-class GraphPropLayer(snt.AbstractModule):
+class GraphPropLayer(snt.Module):
     """Implementation of a graph propagation (message passing) layer."""
 
     def __init__(
@@ -117,7 +117,7 @@ class GraphPropLayer(snt.AbstractModule):
         use_reverse_direction=True,
         reverse_dir_param_different=True,
         layer_norm=False,
-        name="graph-net",
+        name="GraphNet",
     ):
         """Constructor.
 
@@ -183,7 +183,7 @@ class GraphPropLayer(snt.AbstractModule):
             from_idx,
             to_idx,
             self._message_net,
-            aggregation_module=tf.unsorted_segment_sum,
+            aggregation_module=tf.math.unsorted_segment_sum,
             edge_features=edge_features,
         )
 
@@ -208,7 +208,7 @@ class GraphPropLayer(snt.AbstractModule):
                 to_idx,
                 from_idx,
                 self._reverse_message_net,
-                aggregation_module=tf.unsorted_segment_sum,
+                aggregation_module=tf.math.unsorted_segment_sum,
                 edge_features=edge_features,
             )
 
@@ -298,14 +298,14 @@ class GraphPropLayer(snt.AbstractModule):
 
 
 AGGREGATION_TYPE = {
-    "sum": tf.unsorted_segment_sum,
-    "mean": tf.unsorted_segment_mean,
-    "sqrt_n": tf.unsorted_segment_sqrt_n,
-    "max": tf.unsorted_segment_max,
+    "sum": tf.math.unsorted_segment_sum,
+    "mean": tf.math.unsorted_segment_mean,
+    "sqrt_n": tf.math.unsorted_segment_sqrt_n,
+    "max": tf.math.unsorted_segment_max,
 }
 
 
-class GraphAggregator(snt.AbstractModule):
+class GraphAggregator(snt.Module):
     """This module computes graph representations by aggregating from parts."""
 
     def __init__(
@@ -314,7 +314,7 @@ class GraphAggregator(snt.AbstractModule):
         graph_transform_sizes=None,
         gated=True,
         aggregation_type="sum",
-        name="graph-aggregator",
+        name="GraphAggregator",
     ):
         """Constructor.
 
