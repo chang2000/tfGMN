@@ -327,7 +327,7 @@ def evaluate(sess, eval_metrics, placeholders, validation_set, batch_size):
 """Main run process"""
 
 config = get_default_config()
-config["training"]["n_training_steps"] = 5000
+config["training"]["n_training_steps"] = 50000
 tf.reset_default_graph()
 
 # Set random seeds
